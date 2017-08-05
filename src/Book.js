@@ -1,26 +1,13 @@
 import React, {Component} from 'react'
 import PropTypes from 'prop-types'
-import * as BooksAPI from './BooksAPI'
 
 class Book extends Component {
 
-
-    
-    // getISBNIdentifier = (industryIdentifiers) => {
-    //     var ISBNObj = industryIdentifiers.filter(function( obj ) {
-    //     return obj.type == 'ISBN_13';
-    //     });
-        
-    //     return ISBNObj[0].identifier;
-    // }
-
     render() {
         const book = this.props.book;
-        // const identifier = {...book.industryIdentifiers}; console.log(identifier);
 
         return (
-            // <li key={this.getISBNIdentifier(book.industryIdentifiers)}>
-            <li>    
+            <li>
                 <div className="book">
                     <div className="book-top">
                         <div
@@ -31,7 +18,7 @@ class Book extends Component {
                             backgroundImage: `url(${book.imageLinks.smallThumbnail})`
                         }}></div>
                         <div className="book-shelf-changer">
-                            <select value={book.shelf}>
+                            <select value={book.shelf} onChange={this.props.setBookState}>
                                 <option value="none" disabled>Move to...</option>
                                 <option value="currentlyReading">Currently Reading</option>
                                 <option value="wantToRead">Want to Read</option>
