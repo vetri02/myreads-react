@@ -21,6 +21,11 @@ class SearchBooks extends Component {
     bookIdandState: PropTypes.object.isRequired
   };
 
+  /**
+    * @description Update Query State
+    * @param {event} event - event from the query change
+    */
+
   updatequery = event => {
     event.persist();
     var query = event.target.value;
@@ -34,6 +39,11 @@ class SearchBooks extends Component {
       this.setState({ books: [] });
     }
   };
+
+  /**
+    * @description get result through api fetch
+    * @param {string} query - search query
+    */
 
   getResult = query => {
     BooksAPI.search(query, 10).then(books => {

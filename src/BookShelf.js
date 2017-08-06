@@ -9,6 +9,11 @@ class BookShelf extends Component {
     setBookState: PropTypes.func.isRequired
   };
 
+  /**
+    * @description separate books as per shelf
+    * @param {array} userBooks - user book list from api
+    * @param {string} shelf - which shelf
+    */
   getShelfbooks = (userBooks, shelf) => {
     if (!userBooks.length) {
       userBooks = [];

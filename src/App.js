@@ -15,6 +15,12 @@ class BooksApp extends React.Component {
     };
   }
 
+  /**
+    * @description set the book state like which shelf changes
+    * @param {object} param - data of which book the event took place
+    * @param {event} event - select event 
+    */
+
   setBookState = param => event => {
     const self = this;
 
@@ -48,7 +54,12 @@ class BooksApp extends React.Component {
     }
 
     this.setbookIdandState();
-  };
+  }
+
+  /**
+    * @description extract bookId and shelf state into an object
+    * @param {object} books - books in the master view
+    */
 
   setbookIdandState = books => {
     books = books || this.state.userBooks;
@@ -61,6 +72,10 @@ class BooksApp extends React.Component {
       bookIdandState
     });
   };
+
+  /**
+    * @description fetch initial user data
+    */
 
   componentDidMount() {
     BooksAPI.getAll().then(books => {
